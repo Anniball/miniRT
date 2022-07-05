@@ -97,3 +97,20 @@ Example : `mul`
 ### Anti-Aliasing  
 Will "smooth" the rendering by having a better approximation of the color of each pixel. To use anti-aliasing write "aa n" where n is an integer representing the quality of the anti-aliasing that you want. Be careful as the amount of calculation for each pixel will increase exponentially with the value of n : if n = 3 then the calculation will be 3*3=9 times bigger than without it. In this logic a n value of 0 or 1 will lead to no change.  
 Example : `aa 5`  
+
+# More Features 
+
+### Sepia Filter  
+A basic sepia filter (a little bit more complicated than a simple monochromatic filter). Just write `sep` only once on one of the lines except the first.  
+
+### Checker  
+A checker texture done by calculation. Useful to see how a real texture would behave on each solid. To use it on a solid write "c" instead of the classic "r,g,b".  
+Example : `sp 1,0,-3 1 c` will show a sphere with a checker texture instead of `sp 1,0,-3 1 255,0,0` that would show a red sphere.  
+
+### Normal Rainbow  
+A texture where each color represent a direction of the normal vector at the surface of a solid (red for x, green for y and blue for z). Useful to see the true form of an object. To use it write "n" instead of the classic "r,g,b".  
+Example : `sp 1,0,-3 1 n` will show a sphere with a normal texturing instead of `sp 1,0,-3 1 255,0,0` that would show a red sphere.  
+
+### Sinusoidal Normal
+Change the normal of the object and give the impression of a "wave" at its surface. Not very useful or pretty. To use itwrite "d" instead of the classic "r,g,b".  
+Example : `sp 1,0,-3 1 s` will show a sphere with a sinusoidal normal mapping instead of `sp 1,0,-3 1 255,0,0` that would show a red sphere.  
