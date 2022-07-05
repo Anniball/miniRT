@@ -73,3 +73,16 @@ Example : `sq -3.5,0,-3 0.05,0.05,0.0 0.6 127,255,45`
 ### Cylinder
 To add a cylinder on the scene write "cy x,y,z u,v,w r,g,b d l" where "x,y,z" is the position of the cylinder and "u,v,w" is its direction. "l" represents its diameter and "l" is its length.  
 Example : `cy -2.5,-0.5,-4 0.15,0.4,0 255,255,255 0.2 2`  
+
+# Textures  
+This section is about the configurations that will need a path to a texture file in the ".xpm" format. The maximum size taken is 4096 pixels on 4096 pixels.  
+
+### Texture, normal map and bump map
+Note that because of some 42 school limitations you can call normal maps and/or bump maps only if you called for a texture instead of a color. If you don't want one and not the others you can still replace the path by a "0".  
+To be precise instead of "r,g,b" you will always have to write "texturePath normalPath bumpPath" but if you want only texture you can write "texturePath 0 0" or if you want only bump and normal maps but no texture you can write "0 normalPath bumpPath".  
+Example : Instead of `pl 1,0,-11 0,0.225,0 255,255,255`  
+you could write `pl 1,0,-11 0,0.225,0 textures/bricks.xpm textures/bricks_normal.xpm textures/bricks_height.xpm`  
+
+### Background  
+You can add a background by writing "sky path" where "path" is the relative path to a texture in the correct format.  
+Example : `sky textures/space.xpm`  
