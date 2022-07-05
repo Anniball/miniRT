@@ -1,5 +1,5 @@
 # MiniRT
-A raytracer from scratch using the miniLibX. Now features texturing, bump mapping, normal mapping, directional lights and others!
+A raytracer from scratch using the miniLibX. Now features texturing, bump mapping, normal mapping, directional lights, anti-aliasing, multithreading and others!
 
 ### Important
 Initially done for MacOS as part of my formation in C programming at the 42 school but currently working on a Linux compatible version.
@@ -86,3 +86,14 @@ you could write `pl 1,0,-11 0,0.225,0 textures/bricks.xpm textures/bricks_normal
 ### Background  
 You can add a background by writing "sky path" where "path" is the relative path to a texture in the correct format.  
 Example : `sky textures/space.xpm`  
+
+# Important Features  
+I consider those features very important for aesthetic or performance reasons. Those features can be written on any line (except the first) and can be present only once in each file.
+
+### Multithreading  
+Will increase the speed of calculation on most of computers. I suggest you to compare once if the calculation is better with or without it and keep this configuration next. To use multithreading just write `mul` on any line (except the first) of the configuration file.  
+Example : `mul`  
+
+### Anti-Aliasing  
+Will "smooth" the rendering by having a better approximation of the color of each pixel. To use anti-aliasing write "aa n" where n is an integer representing the quality of the anti-aliasing that you want. Be careful as the amount of calculation for each pixel will increase exponentially with the value of n : if n = 3 then the calculation will be 3*3=9 times bigger than without it. In this logic a n value of 0 or 1 will lead to no change.  
+Example : `aa 5`  
