@@ -6,21 +6,16 @@
 #    By: ldelmas <ldelmas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/17 10:52:21 by ldelmas           #+#    #+#              #
-#    Updated: 2022/07/05 10:48:36 by ldelmas          ###   ########.fr        #
+#    Updated: 2022/07/05 13:07:28 by ldelmas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 
-BONUS = -D BONUS=1
-
 FLAGS = -Wall -Wextra -Werror -I includes
 
 %.o: %.c
 			$(CC) $(FLAGS) -c $< -o $@
-
-%.b: %.c
-			$(CC) ${BONUS} $(FLAGS) -c $< -o $@
 
 LIBX =	-L. -lmlx
 
@@ -56,8 +51,6 @@ SRC = ${CALC} ${GEOM} ${MLXU} ${READ} ${BONS} ${MAIN} main.c
 
 OBJS = ${SRC:.c=.o}
 
-BOBJS = ${SRC:.c=.b}
-
 NAME = miniRT
 
 all: 		${NAME}
@@ -65,26 +58,13 @@ all: 		${NAME}
 ${NAME}:	$(OBJS)
 			$(CC) $(FLAGS) -o $(NAME) $(OBJS) $(LIBX)
 
-bonus:		${BOBJS}
-			${CC} ${FLAGS} -o ${NAME} ${BOBJS} ${LIBX}
-
 clean:
 			rm -f ${OBJS}
-
-bclean:
-			rm -f ${BOBJS}
 
 fclean: 	clean
 			rm -f ${NAME}
 
-fbclean:	bclean
-			rm -f ${NAME}
-
-ffclean:	clean	fbclean
-
 re: 		fclean all
-
-reb:		fbclean bonus
 
 norm:		
 			norminette ${SRC}

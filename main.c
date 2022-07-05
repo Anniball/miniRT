@@ -6,7 +6,7 @@
 /*   By: ldelmas <ldelmas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 14:20:47 by ldelmas           #+#    #+#             */
-/*   Updated: 2021/04/21 15:37:11 by ldelmas          ###   ########.fr       */
+/*   Updated: 2022/07/05 12:53:21 by ldelmas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static t_param	*set_param(t_2dvec *screen, char *name, void *mlx)
 	param = initialize_param(screen, name);
 	if (!param)
 		return ((void *)0);
-	if (BONUS == 1 && find_texture(mlx, param->objs, param) == -1)
+	else if (find_texture(mlx, param->objs, param) == -1)
 	{
 		free_objects(param->objs, param->lights, param->cams);
 		free(param);

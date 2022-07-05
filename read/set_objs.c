@@ -6,7 +6,7 @@
 /*   By: ldelmas <ldelmas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 16:02:46 by ldelmas           #+#    #+#             */
-/*   Updated: 2021/04/12 16:03:29 by ldelmas          ###   ########.fr       */
+/*   Updated: 2022/07/05 13:18:58 by ldelmas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,13 +56,13 @@ int	set_objs(char *ln, t_solid **o, t_light **lights, t_camera **cam)
 	o_o = *o;
 	o_l = *lights;
 	o_c = *cam;
-	if (*ln == 'A' || *ln == 'l' || (*ln == 'd' && BONUS == 1))
+	if (*ln == 'A' || *ln == 'l' || *ln == 'd')
 		*lights = set_lighting(*ln, ln, *lights);
 	else if (*ln == 'c' && *(ln + 1) != 'y')
 		*cam = set_cam(ln, *cam);
 	else
 		return (check_init(ln, o));
-	if (((*ln == 'A' || *ln == 'l' || (*ln == 'd' && BONUS == 1)) && *lights)
+	if (((*ln == 'A' || *ln == 'l' || *ln == 'd') && *lights)
 		|| ((*ln == 'c' && *(ln + 1) != 'y') && *cam))
 		return (0);
 	if (!(*o))
@@ -71,6 +71,8 @@ int	set_objs(char *ln, t_solid **o, t_light **lights, t_camera **cam)
 		*lights = o_l;
 	if (!(*cam))
 		*cam = o_c;
+	ft_putstr_fd(2, ln);
+	write(2, "\n", 2);
 	ft_putstr_fd(2, "Error\nBad char at line's start or bad settings.\n");
 	return (-1);
 }

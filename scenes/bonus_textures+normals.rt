@@ -2,7 +2,7 @@ R 2400 600
 mul
 aa 5
 sky textures/space.xpm
-c 0,0,0 0,0,0 70
+c 0,0,0 0,0,-1 70
 A 0.1 150,255,255
 cy -1,0,-3 0.8,0,0 t textures/bricks.xpm textures/bricks_normal.xpm 0 0.5 0.9
 sp 1,0,-3 1 t textures/bricks.xpm textures/bricks_normal.xpm 0

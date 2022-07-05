@@ -6,7 +6,7 @@
 /*   By: ldelmas <ldelmas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 15:35:54 by ldelmas           #+#    #+#             */
-/*   Updated: 2021/04/21 10:59:12 by ldelmas          ###   ########.fr       */
+/*   Updated: 2022/07/05 12:55:05 by ldelmas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,6 @@ int	get_bonus(char *ln, t_param *par)
 	int	val;
 
 	val = 0;
-	if (BONUS == 0)
-		return (0);
 	val = get_filter_thread(ln, par);
 	if (!val)
 		val = get_antialiasing(ln, par);

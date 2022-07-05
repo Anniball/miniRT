@@ -6,7 +6,7 @@
 /*   By: ldelmas <ldelmas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 10:49:14 by ldelmas           #+#    #+#             */
-/*   Updated: 2021/04/21 12:57:36 by ldelmas          ###   ########.fr       */
+/*   Updated: 2022/07/05 12:56:33 by ldelmas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ static int	**send_camera_rays(t_2dvec screen, t_param *par, int **image,
 		while (++(s.y) < screen.x)
 		{
 			o.s = set_2dfvec((double)s.x + 0.5, (double)s.y + 0.5);
-			if (BONUS == 0 || (BONUS == 1 && par->aa <= 1))
+			if (par->aa <= 1)
 				image[s.y][s.x] = get_pixel_color(screen, par, o,
 						get_background_pixel(s, screen, par->skybox));
-			if (BONUS == 1 && par->aa > 1)
+			else if (par->aa > 1)
 				image[s.y][s.x] = set_aa(screen, par, o);
-			if (BONUS == 1 && par->filter == 's')
+			if (par->filter == 's')
 				image[s.y][s.x] = sepia_filter(image[s.y][s.x]);
 		}
 	}
@@ -74,7 +74,7 @@ int	***translate_objects(t_param *param, t_2dvec size, int ***images)
 		tmp_c = param->cams;
 		while (images[++i])
 		{
-			if (BONUS == 1 && param->mult == 1)
+			if (param->mult == 1)
 				images[i] = multi_ray(size, param, images[i], tmp_c);
 			else
 				images[i] = send_camera_rays(size, param, images[i], tmp_c);

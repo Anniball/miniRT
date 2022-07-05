@@ -6,7 +6,7 @@
 /*   By: ldelmas <ldelmas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 10:43:16 by ldelmas           #+#    #+#             */
-/*   Updated: 2021/04/21 12:01:04 by ldelmas          ###   ########.fr       */
+/*   Updated: 2022/07/05 12:59:03 by ldelmas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,7 @@ t_param	*read_file(char *filename, t_2dvec *res, t_param *par)
 	while (read)
 	{
 		read = get_next_line(fd, &line);
-		if ((BONUS == 1 && !(get_bonus(line, par))) || BONUS == 0)
+		if (!get_bonus(line, par))
 		{
 			par = read_line(res, par, line);
 			if (!par)
