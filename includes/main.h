@@ -6,7 +6,7 @@
 /*   By: ldelmas <ldelmas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 12:00:46 by ldelmas           #+#    #+#             */
-/*   Updated: 2022/07/05 12:54:30 by ldelmas          ###   ########.fr       */
+/*   Updated: 2022/07/05 17:30:38 by ldelmas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,13 @@
 # define W_SKY 4096
 # define H_SKY 4096
 
-# define SPEC 70
-# define N 0.2
+# ifndef SPEC
+#  define SPEC 70
+# endif
+
+# ifndef N
+#  define N 0.2
+# endif
 
 typedef struct s_vars
 {
