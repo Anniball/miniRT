@@ -95,9 +95,17 @@ This section is about the configurations that will need a path to a texture file
 
 ### Texture, normal map and bump map
 Note that because of some 42 school limitations you can call normal maps and/or bump maps only if you called for a texture instead of a color. If you don't want one and not the others you can still replace the path by a "0".  
-To be precise instead of "r,g,b" you will always have to write "texturePath normalPath bumpPath" but if you want only texture you can write "texturePath 0 0" or if you want only bump and normal maps but no texture you can write "0 normalPath bumpPath".  
+To be precise instead of "r,g,b" you will always have to write "t texturePath normalPath bumpPath" but if you want only texture you can write "t texturePath 0 0" or if you want only bump and normal maps but no texture you can write "t 0 normalPath bumpPath".  
 Example : Instead of `pl 1,0,-11 0,0.225,0 255,255,255`  
-you could write `pl 1,0,-11 0,0.225,0 textures/bricks.xpm textures/bricks_normal.xpm textures/bricks_height.xpm`  
+you could write `pl 1,0,-11 0,0.225,0 t textures/bricks.xpm textures/bricks_normal.xpm textures/bricks_height.xpm`  
+
+To illustrate the point of this section here is some picture from up to below : without any texture, with only color texture, with only normal map, with only bump map and with texture combined with normal map.  
+
+![save](https://user-images.githubusercontent.com/49061509/177544237-c12ca734-dc3b-42cf-92de-48657fc4a25f.jpg)
+![texture](https://user-images.githubusercontent.com/49061509/177544263-76a56b89-081f-48e4-836e-8155e0b08bca.jpg)
+![normal](https://user-images.githubusercontent.com/49061509/177544278-fa2e8eb5-b22c-4468-9bdd-d2761e3bc043.jpg)
+![bump](https://user-images.githubusercontent.com/49061509/177544294-7362ec28-7461-4452-9297-fc65ff52a4f8.jpg)
+![normaltext](https://user-images.githubusercontent.com/49061509/177544324-99e25041-afea-456b-946f-d09ef0464608.jpg)
 
 ### Background  
 You can add a background by writing "sky path" where "path" is the relative path to a texture in the correct format.  
