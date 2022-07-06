@@ -30,7 +30,7 @@ Example : `R 600 325`
 To define a camera write "c x,y,z u,v,w f" where you would replace "x,y,z" by the position of the camera and "u,v,w" by the direction of the camera. "f" should be replaced by the field of vue of the camera. The field of vue should be an integer but all the others can be floats and the direction of the camera can't be "0,0,0".
 Having at least one camera is mandatory but you can have many!  
 If you put multiple cameras all the images will be calculated at the start of the program then you'll be able to change from one camera view to another using the "left" and "right" keys!  
-Example : `c 0,0.2,0 0.12,0,-1 70` 
+Example : `c 0,0.2,0 0.12,0,-1 70`  
 
 # Lights  
 
@@ -102,15 +102,19 @@ Example : `aa 5`
 
 ### Sepia Filter  
 A basic sepia filter (a little bit more complicated than a simple monochromatic filter). Just write `sep` only once on one of the lines except the first.  
+![sepia](https://user-images.githubusercontent.com/49061509/177512538-05ef6b31-5d0f-48c5-9828-f6b60e595c62.jpg)
 
 ### Checker  
 A checker texture done by calculation. Useful to see how a real texture would behave on each solid. To use it on a solid write "c" instead of the classic "r,g,b".  
 Example : `sp 1,0,-3 1 c` will show a sphere with a checker texture instead of `sp 1,0,-3 1 255,0,0` that would show a red sphere.  
+![checker](https://user-images.githubusercontent.com/49061509/177512313-95469159-cd18-4fd4-8895-2f27b3bd294a.jpg)
 
 ### Normal Rainbow  
 A texture where each color represent a direction of the normal vector at the surface of a solid (red for x, green for y and blue for z). Useful to see the true form of an object. To use it write "n" instead of the classic "r,g,b".  
 Example : `sp 1,0,-3 1 n` will show a sphere with a normal texturing instead of `sp 1,0,-3 1 255,0,0` that would show a red sphere.  
+![normal](https://user-images.githubusercontent.com/49061509/177512377-56cf175e-3f57-443c-8a78-83cc0790117f.jpg)
 
 ### Sinusoidal Normal
-Change the normal of the object and give the impression of a "wave" at its surface. Not very useful or pretty. To use itwrite "d" instead of the classic "r,g,b".  
+Change the normal of the object and give the impression of a "wave" at its surface. Not very useful or pretty. To use it write "d" instead of the classic "r,g,b".  
 Example : `sp 1,0,-3 1 s` will show a sphere with a sinusoidal normal mapping instead of `sp 1,0,-3 1 255,0,0` that would show a red sphere.  
+![sin](https://user-images.githubusercontent.com/49061509/177512446-7b1b1850-6412-41f4-b37e-b1b1667e4584.jpg)
