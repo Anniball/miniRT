@@ -41,7 +41,7 @@ Below you can see what parameters of the camera can change on the picture.
 ### Ambient/Global Light
 To add an ambient light (also often called global light) write "A I r,g,b" where I is the intensity of the light and "r,g,b" is the color of the light. Intensity can be a float and "r,g,b" values must be between 0 included and 255 included.  
 The ambient light is mandatory (even if you can put its intensity to 0). You can't have more than one ambient light since multiple ones would just add themselves to eachothers which is a suboptimal use of the program.  
-Example : `A 0.2 255,127,50` 
+Example : `A 0.2 255,127,50`  
 Below you can see a scene without and with a blue global light.  
 
 ![al1](https://user-images.githubusercontent.com/49061509/177522629-38ace457-410e-4d87-bc2f-9585a56f538d.jpg) ![al2](https://user-images.githubusercontent.com/49061509/177522654-aa1a0fd8-a7fc-4252-9a75-95f43377a14f.jpg)
@@ -52,6 +52,7 @@ To add a point light (a light defined only by its position) write "l x,y,z I r,g
 The presence of directional light is optional and you can put as many as you want in your scenes!  
 Example : `l -1.5,1,-2.5 0.08 85,85,255`  
 Below you can see a scene without and with point lights.  
+
 ![point1](https://user-images.githubusercontent.com/49061509/177524433-d80c1d02-3015-43bb-92c9-03d5299b2682.jpg)  ![point2](https://user-images.githubusercontent.com/49061509/177524448-fa14bb31-a856-4f4b-931d-0dd91928bbd6.jpg)
 
 
@@ -59,6 +60,10 @@ Below you can see a scene without and with point lights.
 To add a directional light (a light defined only by its direction) write "d x,y,z I r,g,b"  where "x,y,z" is the direction of the light, "I" is the intensity and "r,g,b," is the light's colour. All those values can be floats.  
 The presence of directional light is optional and you can put as many as you want in your scenes!  
 Example : `l 0,0.5,-1 0.08 85,85,255`  
+Below you can see a scene without and with a yellow directional light.  
+
+![dir1](https://user-images.githubusercontent.com/49061509/177539053-59a8542d-4654-4de1-8f69-203b48a3cae8.jpg)  ![dir2](https://user-images.githubusercontent.com/49061509/177539127-a0e77127-ef07-4b82-a535-8f730a2523a8.jpg)
+
 
 # Objects 
 How to add different solids in this 3D space. All the objects are optionals and can be as many as you want (obviously a huge amount of objects will increase by a lot the picture's calculation time).  
@@ -108,6 +113,10 @@ Example : `mul`
 ### Anti-Aliasing  
 Will "smooth" the rendering by having a better approximation of the color of each pixel. To use anti-aliasing write "aa n" where n is an integer representing the quality of the anti-aliasing that you want. Be careful as the amount of calculation for each pixel will increase exponentially with the value of n : if n = 3 then the calculation will be 3*3=9 times bigger than without it. In this logic a n value of 0 or 1 will lead to no change.  
 Example : `aa 5`  
+Below you can see a scene without and with the anti-aliasing.  
+
+![aa1](https://user-images.githubusercontent.com/49061509/177540482-966c56db-76b6-45ff-81cd-477fd868ba0b.jpg) ![aa2](https://user-images.githubusercontent.com/49061509/177540498-19593caa-09c9-4c72-9b5e-3fc3d3c3a6e3.jpg)
+
 
 # More Features 
 
