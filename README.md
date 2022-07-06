@@ -2,9 +2,12 @@
 A raytracer from scratch using the miniLibX. Now features texturing, bump mapping, normal mapping, directional lights, anti-aliasing, multithreading and others!
 
 ### Important
-Initially done for MacOS as part of my formation in C programming at the 42 school but currently working on a Linux compatible version.
+Initially done for MacOS as part of my formation in C programming at the 42 school but is currently Linux (at least Ubuntu) compatible version.
+Note that for Linux a few packages must be installed before trying to create the executable : gcc, make, xorg, libxext-dev and libbsd-dev.
+The inputs dont't work right now but will soon be fixed on Ubuntu.
+
 The code is quite messy as I had to respect 42's restrictions about number of lines, number of functions, limitation of which functions I could call, ...
-I intend to improve it once the code will be Linux-compatible.
+I intend to improve it once the code will be fully Linux-compatible.
 
 # How to use it
 Compile the source code using the `make` command in the MiniRT folder.
