@@ -31,6 +31,10 @@ To define a camera write "c x,y,z u,v,w f" where you would replace "x,y,z" by th
 Having at least one camera is mandatory but you can have many!  
 If you put multiple cameras all the images will be calculated at the start of the program then you'll be able to change from one camera view to another using the "left" and "right" keys!  
 Example : `c 0,0.2,0 0.12,0,-1 70`  
+Below you can see what parameters of the camera can change on the picture.  
+
+![cam1](https://user-images.githubusercontent.com/49061509/177520862-10ef9e6e-bf82-4276-b3af-1d6f4603a196.jpg)  ![cam2](https://user-images.githubusercontent.com/49061509/177520885-d030cf54-3f8f-4954-9f30-f85f955470e2.jpg)
+
 
 # Lights  
 
@@ -38,11 +42,18 @@ Example : `c 0,0.2,0 0.12,0,-1 70`
 To add an ambient light (also often called global light) write "A I r,g,b" where I is the intensity of the light and "r,g,b" is the color of the light. Intensity can be a float and "r,g,b" values must be between 0 included and 255 included.  
 The ambient light is mandatory (even if you can put its intensity to 0). You can't have more than one ambient light since multiple ones would just add themselves to eachothers which is a suboptimal use of the program.  
 Example : `A 0.2 255,127,50` 
+Below you can see a scene without and with a blue global light.  
+
+![al1](https://user-images.githubusercontent.com/49061509/177522629-38ace457-410e-4d87-bc2f-9585a56f538d.jpg) ![al2](https://user-images.githubusercontent.com/49061509/177522654-aa1a0fd8-a7fc-4252-9a75-95f43377a14f.jpg)
+
 
 ### Point Light
 To add a point light (a light defined only by its position) write "l x,y,z I r,g,b" where "x,y,z" is the position of the light, "I" is the intensity and "r,g,b," is the light's colour. All those values can be floats.  
 The presence of directional light is optional and you can put as many as you want in your scenes!  
 Example : `l -1.5,1,-2.5 0.08 85,85,255`  
+Below you can see a scene without and with point lights.  
+![point1](https://user-images.githubusercontent.com/49061509/177524433-d80c1d02-3015-43bb-92c9-03d5299b2682.jpg)  ![point2](https://user-images.githubusercontent.com/49061509/177524448-fa14bb31-a856-4f4b-931d-0dd91928bbd6.jpg)
+
 
 ### Directional Light
 To add a directional light (a light defined only by its direction) write "d x,y,z I r,g,b"  where "x,y,z" is the direction of the light, "I" is the intensity and "r,g,b," is the light's colour. All those values can be floats.  
