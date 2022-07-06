@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldelmas <ldelmas@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 10:40:55 by ldelmas           #+#    #+#             */
-/*   Updated: 2021/04/19 15:06:17 by ldelmas          ###   ########.fr       */
+/*   Updated: 2022/07/06 15:33:38 by lucas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,15 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
+# include <stdio.h>
 # include "calc.h"
 # include "geom.h"
 
 # define BUFFER_SIZE 100
+
+# ifndef OPEN_MAX
+#  define OPEN_MAX FOPEN_MAX
+# endif
 
 typedef struct s_camera
 {

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ldelmas <ldelmas@student.42.fr>            +#+  +:+       +#+         #
+#    By: lucas <lucas@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/17 10:52:21 by ldelmas           #+#    #+#              #
-#    Updated: 2022/07/05 13:07:28 by ldelmas          ###   ########.fr        #
+#    Updated: 2022/07/06 18:00:28 by lucas            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,10 @@ CC = gcc
 
 FLAGS = -Wall -Wextra -Werror -I includes
 
+LFLAGS = -lm -lpthread -lX11 -lXext
+
 %.o: %.c
 			$(CC) $(FLAGS) -c $< -o $@
-
-LIBX =	-L. -lmlx
 
 CALC =	calc/set_vec.c	calc/isbetween.c	calc/norm_vec.c	calc/set_matrix.c\
 		calc/mult_matrix.c	calc/set_array.c	calc/print_matrix.c\
@@ -53,10 +53,22 @@ OBJS = ${SRC:.c=.o}
 
 NAME = miniRT
 
+UNAME_S := $(shell uname -s)
+
+ifeq ($(UNAME_S),Linux)
+	LIBX =	-L. -l:linux/libmlx.a
+	OS_RULE = $(CC) $(FLAGS) -o $(NAME) $(OBJS) $(LIBX) $(LFLAGS)
+else 
+ifeq ($(UNAME_S),Darwin)
+	LIBX =	-L. -l:macos/libmlx.a
+	OS_RULE = $(CC) $(FLAGS) -o $(NAME) $(OBJS) $(LIBX)
+endif
+endif
+
 all: 		${NAME}
 
 ${NAME}:	$(OBJS)
-			$(CC) $(FLAGS) -o $(NAME) $(OBJS) $(LIBX)
+			$(OS_RULE)
 
 clean:
 			rm -f ${OBJS}
@@ -70,4 +82,4 @@ norm:
 			norminette ${SRC}
 			norminette includes/
 
-.PHONY:		all clean fclean re
+.PHONY:		all clean fclean re linux macos norm

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   normal_mapping.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldelmas <ldelmas@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 13:45:12 by ldelmas           #+#    #+#             */
-/*   Updated: 2021/04/13 15:01:27 by ldelmas          ###   ########.fr       */
+/*   Updated: 2022/07/06 16:12:47 by lucas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,7 @@ t_3dfvec	normal_map(t_ray_prop props)
 	double		angle;
 	t_3dfvec	rod[3];
 	int			color;
-	t_2dfvec	uv;
 
-	uv = get_uv_by_type(props);
 	props.m_normal = set_3dfvec(0, 0, 1);
 	props.normal = normalize_ray(props.normal);
 	axis = normalize_ray(vecprod_3dfvec(props.m_normal, props.normal));
@@ -105,12 +103,10 @@ t_3dfvec	get_bump(t_ray_prop props)
 t_3dfvec	bump_map(t_ray_prop props)
 {
 	t_3dfvec	bump;
-	t_2dfvec	uv;
 	t_3dfvec	axis;
 	double		angle;
 	t_3dfvec	rod[3];
 
-	uv = get_uv_by_type(props);
 	bump = get_bump(props);
 	normalize_ray(bump);
 	axis = normalize_ray(vecprod_3dfvec(set_3dfvec(0, 0, 1), props.m_normal));
