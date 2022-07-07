@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lucas <lucas@student.42.fr>                +#+  +:+       +#+         #
+#    By: ldelmas <ldelmas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/17 10:52:21 by ldelmas           #+#    #+#              #
-#    Updated: 2022/07/06 18:00:28 by lucas            ###   ########.fr        #
+#    Updated: 2022/07/07 10:02:21 by ldelmas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,7 @@ ifeq ($(UNAME_S),Linux)
 	OS_RULE = $(CC) $(FLAGS) -o $(NAME) $(OBJS) $(LIBX) $(LFLAGS)
 else 
 ifeq ($(UNAME_S),Darwin)
-	LIBX =	-L. -l:macos/libmlx.a
+	LIBX =	-L. -lmlx
 	OS_RULE = $(CC) $(FLAGS) -o $(NAME) $(OBJS) $(LIBX)
 endif
 endif
