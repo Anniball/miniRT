@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hook.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldelmas <ldelmas@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:31:19 by ldelmas           #+#    #+#             */
-/*   Updated: 2021/04/12 12:04:29 by ldelmas          ###   ########.fr       */
+/*   Updated: 2022/07/07 11:04:34 by lucas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 static void	move_by_arrows(int keycode, t_vars *vars)
 {
-	if (keycode == 123)
+	if (keycode == LEFT_KEY)
 	{
 		(vars->ref)--;
 		if (vars->ref < 0)
@@ -35,7 +35,7 @@ static void	move_by_arrows(int keycode, t_vars *vars)
 		mlx_clear_window(vars->mlx, vars->win);
 		mlx_put_image_to_window(vars->mlx, vars->win, vars->img.img, 0, 0);
 	}
-	else if (keycode == 124)
+	else if (keycode == RIGHT_KEY)
 	{
 		(vars->ref)++;
 		if (!(vars->images[vars->ref]))
@@ -44,6 +44,8 @@ static void	move_by_arrows(int keycode, t_vars *vars)
 		mlx_clear_window(vars->mlx, vars->win);
 		mlx_put_image_to_window(vars->mlx, vars->win, vars->img.img, 0, 0);
 	}
+	else
+		printf("Non attributed key.\n");
 }
 
 int	key_exit(t_vars *vars)
@@ -56,11 +58,9 @@ int	key_exit(t_vars *vars)
 
 int	key_hook(int keycode, t_vars *vars)
 {
-	if (keycode == 53)
+	if (keycode == ESCAPE_KEY)
 		key_exit(vars);
-	else if (keycode > 122 && keycode < 125)
-		move_by_arrows(keycode, vars);
 	else
-		printf("Non attributed key.\n");
+		move_by_arrows(keycode, vars);
 	return (1);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldelmas <ldelmas@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 12:00:46 by ldelmas           #+#    #+#             */
-/*   Updated: 2022/07/05 17:30:38 by ldelmas          ###   ########.fr       */
+/*   Updated: 2022/07/07 11:01:36 by lucas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,16 @@
 
 # ifndef N
 #  define N 0.2
+# endif
+
+# ifdef __linux__
+#  define LEFT_KEY 65361
+#  define RIGHT_KEY 65363
+#  define ESCAPE_KEY 65307
+# else
+#  define LEFT_KEY 123
+#  define RIGHT_KEY 124
+#  define ESCAPE_KEY 53
 # endif
 
 typedef struct s_vars
